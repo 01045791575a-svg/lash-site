@@ -1,0 +1,164 @@
+:root{
+  --bg:#fffaf3;          /* 크림톤 배경 */
+  --ink:#27323a;         /* 본문 */
+  --sub:#6b7280;         /* 보조 텍스트 */
+  --brand:#c988a9;       /* 로즈 포인트 */
+  --brand-dark:#a86b8f;
+  --muted:#eadfd7;       /* 경계선 */
+  --card:#ffffff;        /* 카드 배경 */
+  --ring:rgba(201,136,169,.28);
+  --sale:#c2416b;        /* 가격 강조 */
+}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:"Noto Sans KR", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color:var(--ink); background:var(--bg); line-height:1.65;
+}
+.container{max-width:1100px;margin:0 auto;padding:clamp(18px,3vw,40px)}
+a{color:inherit;text-decoration:none}
+
+/* 헤더 */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(255,250,243,.85); backdrop-filter:saturate(180%) blur(8px);
+  border-bottom:1px solid var(--muted);
+}
+.nav{display:flex;align-items:center;justify-content:space-between}
+
+/* 헤더 로고(이미지+텍스트) */
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{height:36px;width:auto;display:block;border-radius:4px}
+.logo-text{font-weight:900;letter-spacing:.02em}
+@media (max-width:520px){ .logo img{height:28px} .logo-text{display:none} }
+
+nav a{margin-left:14px;padding:8px 10px;border-radius:8px}
+nav a:hover{background:rgba(0,0,0,.06)}
+nav .buy{font-weight:800;color:var(--brand)}
+
+/* 카드 공통 */
+.card{
+  background:var(--card); border:1px solid var(--muted);
+  border-radius:16px; box-shadow:0 10px 24px rgba(0,0,0,.06);
+}
+
+/* 히어로 */
+.hero{padding:42px 0}
+.hero-grid{display:grid;gap:24px;grid-template-columns:1fr}
+@media (min-width:960px){.hero-grid{grid-template-columns:1.1fr 1fr;align-items:center}}
+.media img{width:100%;height:auto;border-radius:14px;display:block}
+
+/* 히어로에 로고를 넣을 때(자르지 말고 안에 맞추기) */
+.logo-media jpg{
+  width:100%;
+  height:clamp(220px, 38vw, 380px);
+  object-fit:contain;
+  background:#fff;
+  padding:24px;
+  border-radius:14px;
+  display:block;
+}
+
+.badge{display:inline-block;background:#111;color:#fff;border-radius:999px;padding:6px 10px;font-size:.8rem;letter-spacing:.06em;margin-bottom:10px}
+.title{font-size:clamp(30px,5vw,48px);margin:6px 0 8px}
+.mbr{display:none}@media (max-width:520px){.mbr{display:inline}}
+.subtitle{color:var(--sub);font-size:clamp(15px,1.6vw,18px);margin:0 0 12px}
+.bullets{margin:8px 0 18px;padding-left:18px}
+.bullets li{margin:6px 0}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap}
+.trust{margin-top:10px;color:#4b5563;display:flex;align-items:center;gap:8px}
+.trust .dot{width:10px;height:10px;border-radius:50%;background:#10b981;display:inline-block}
+
+/* 섹션 공통 */
+.section{padding:56px 0}
+.section.muted{background:#f7f2ed}
+.sec-title{font-size:clamp(24px,3.4vw,34px);margin:0 0 18px}
+
+/* 3컬럼 그리드 */
+.grid-3{display:grid;gap:18px;grid-template-columns:1fr}
+@media (min-width:900px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+
+/* 커리큘럼 카드 */
+.step{padding:20px}
+.step h3{margin:4px 0 10px}
+
+/* 혜택 */
+.benefit{padding:20px}
+.benefit h4{margin:4px 0 6px}
+
+/* 갤러리 */
+.images img{width:100%;height:auto;border-radius:14px}
+
+/* 후기 */
+.review{padding:20px}
+.stars{color:#f59e0b;font-weight:800}
+.user{color:#6b7280;font-size:.9rem}
+
+/* 가격 */
+.highlight{background:linear-gradient(180deg,#fffaf3 0,#f2ece6 100%)}
+.price-wrap{display:grid;gap:22px;padding:24px;grid-template-columns:1fr}
+@media (min-width:900px){.price-wrap{grid-template-columns:1.1fr .9fr;align-items:center}}
+.price{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:10px}
+.pill{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--muted);border-radius:999px;padding:8px 12px}
+.sale{color:var(--sale);font-weight:900}
+.tag{background:#f4e8ee;color:#7a3f5d;padding:6px 10px;border-radius:999px;font-weight:700}
+.ship{color:#059669;font-weight:700;margin:6px 0}
+.safe{color:#6b7280}
+
+/* 버튼 (폴백 색상 포함) */
+.btn{
+  display:inline-block; cursor:pointer; border:none;
+  padding:12px 18px; border-radius:10px; font-weight:800;
+  transition:transform .1s ease, background-color .2s ease, box-shadow .2s ease;
+  outline:none;
+}
+.btn:focus{ box-shadow:0 0 0 3px var(--ring, rgba(47,125,190,.25)); }
+.btn.primary{
+  background: var(--brand, #2f7dbe);
+  color:#fff;
+  box-shadow:0 10px 22px rgba(0,0,0,.08);
+}
+.btn.primary:hover{ background: var(--brand-dark, #245f90); transform:translateY(-1px); }
+.btn.ghost{
+  border:1.6px solid var(--brand, #2f7dbe);
+  color: var(--brand, #2f7dbe);
+  background:transparent;
+}
+.btn.ghost:hover{ background: color-mix(in srgb, var(--brand, #2f7dbe) 10%, transparent); }
+.btn.xl{padding:14px 22px;border-radius:12px}
+
+/* 모바일 버튼 스택 */
+@media (max-width:560px){
+  .cta-row{flex-direction:column}
+  .cta-row .btn{width:100%}
+}
+
+/* FAQ */
+.faq details{
+  background:var(--card); border:1px solid var(--muted);
+  border-radius:12px; padding:14px 16px; margin:10px 0;
+}
+.faq summary{cursor:pointer;font-weight:700}
+.faq p{margin:10px 0 0}
+
+/* 푸터 */
+.footer{border-top:1px solid var(--muted);background:#f2efe9}
+.foot{display:flex;align-items:center;justify-content:space-between}
+.to-top{padding:8px 12px;border-radius:8px}
+.to-top:hover{background:rgba(0,0,0,.06)}
+
+/* ===== 하단 고정 CTA: 데스크톱 숨김 / 모바일 표시 ===== */
+.sticky-cta { display: none !important; }
+@media (max-width: 720px){
+  .sticky-cta{
+    position: fixed;
+    left: 0; right: 0; bottom: 0; z-index: 60;
+    display: flex !important;
+    gap: 8px; padding: 10px 14px;
+    background: rgba(255,250,243,.95);
+    border-top: 1px solid var(--muted);
+    backdrop-filter: blur(6px);
+  }
+  .sticky-cta .btn{ flex: 1; }
+}
